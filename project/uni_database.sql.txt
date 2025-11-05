@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS uni;
+USE uni;
+
+CREATE TABLE IF NOT EXISTS subjects (
+    subject_ID INT PRIMARY KEY,
+    subject_Name VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS students (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(30),
+    Course VARCHAR(30),
+    Age INT,
+    Gpa DECIMAL(10,2)
+);
+
+CREATE TABLE IF NOT EXISTS intermediate (
+    ID INT,
+    subject_ID INT,
+    GPA DECIMAL(2,1),
+    FOREIGN KEY (ID) REFERENCES students(ID),
+    FOREIGN KEY (subject_ID) REFERENCES subjects(subject_ID)
+);
